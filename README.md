@@ -1,8 +1,8 @@
-# Vimium Glass Theme
+# Vimium Zen Theme
 
-A custom dark glass theme for the Vimium browser add-on, with code based on [gajaza/vimium-dark-theme](https://github.com/gajaza/vimium-dark-theme). For more custom themes, visit [Vimium's GitHub wiki](https://github.com/philc/vimium/wiki/Theme) on themes.
+A custom dark theme for the Vimium browser add-on inspired by Zen Browser's floating search bar, with code based on [mxxjng/vimium-glass-theme](https://github.com/mxxjng/vimium-glass-theme). For more custom themes, visit [Vimium's GitHub wiki](https://github.com/philc/vimium/wiki/Theme) on themes.
 
-## Installing Vimium
+### Installing Vimium
 
 You can install [Vimium](https://github.com/philc/vimium) from your respective browser's add-ons store:
 
@@ -11,31 +11,38 @@ You can install [Vimium](https://github.com/philc/vimium) from your respective b
 
 [More instructions](https://github.com/philc/vimium)
 
-## Customising Your Vimium's CSS
+### Customising Your Vimium's CSS
 
-Copy the code in the [CSS file](https://github.com/mxxjng/vimium-glass-theme/blob/main/stylesheet.css) into 'CSS for Vimium UI' inside 'Vimium Options' in your browser's add-ons settings:
+Copy the code in the [CSS file](https://github.com/RanMd/vimium-zen-theme/blob/main/stylesheet.css) into 'CSS for Vimium UI' inside 'Vimium Options' in your browser's add-ons settings:
 
 - Google Chrome: chrome://extensions/
 - Firefox: about:addons
 
 Note that you may have to reload the page for the custom CSS to take effect.
 
----
+### Screenshots
 
-## Screenshots
+#### Vomnibar
 
-### Vomnibar
+<img width="725" alt="screenshot-vomnibar" src="images/Vomnibar.webp">
 
-<img width="1378" alt="screenshot-vomnibar" src="images/vomnibar.png">
+#### Link Hints
 
-### Link Hints
+<img width="725" alt="screenshot-link-hints" src="images/Hints.webp">
 
-<img width="1378" alt="screenshot-link-hints" src="images/link-hints.png">
+#### Heads Up Display
 
-### Heads Up Display
+<img width="725" alt="screenshot-heads-up-display" src="images/Hud.webp">
 
-<img width="1378" alt="screenshot-heads-up-display" src="images/HUD.png">
+#### Help Dialog
 
-### Help Dialog
+<img width="725" alt="screenshot-help-dialog" src="images/HelpDialog.webp">
 
-<img width="1378" alt="screenshot-help-dialog" src="images/help-dialog.png">
+### Customization
+You can customize the colors to your liking by changing the variables inside `:root`
+
+### Thanks to
+- [Max Jung](https://github.com/mxxjng)
+
+### Licennse
+[MIT License](https://github.com/RanMd/vimium-zen-theme/blob/main/LICENSE)
