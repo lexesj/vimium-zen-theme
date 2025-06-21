@@ -1,42 +1,161 @@
 :root {
-  --font-size: 14;
-  --font-size-hints: 12;
-  --font-size-url: 12;
+  --font-size: 18px;
+  --font-size-title: 16px;
+  --font-size-hints: 12px;
+  --font-size-url: 12px;
 
   --font-weight: normal;
   --font-weight-medium: medium;
   --font-weight-bold: bold;
 
-  --font: "Helvetica Neue", "Helvetica", "Arial", sans-serif; /* Font used in the UI */
+  --font: "Cantarell", "Noto Serif", "Arial", sans-serif;
 
   --padding: 2px;
-  --padding-vomnibar: 15px;
+  --padding-vomnibar: 10px 0;
   --shadow: 0px 20px 40px 0px rgba(0, 0, 0, 0.25);
   --blur: 40px;
 
-  /* -------- VOMNIBAR & HUD -------- */
-  --fg: #ffffff;
+  /* Vomnibar & hud */
+  --fg: #fff;
   --fg-dark: #c9c9c9;
-  --fg-url: #84bffa;
-  --fg-match: #2165d9;
+  --fg-match: #fff;
+  --fg-url: #aaaaaa;
 
-  --bg: rgba(30, 30, 30, 0.8);
+  --bg: #202020;
   --bg-selected: rgba(150, 150, 150, 0.3);
 
-  --border: #464646;
+  --border: #38373e;
 
-  /* -------- HINTS -------- */
-  --fg-hints: #ffd752; /* Text color of link hints, (don't forget to change `#vimiumHintMarkerContainer div > .matchingCharacter ~ span`) */
+  /* Hints */
+  --fg-hints: #fff;
 }
 
-/* --------------------------------- CSS --------------------------------- */
+/* CSS */
 
-/* -------- HINTS -------- */
+/* Vomnibar */
+
+#vomnibar {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+  border-radius: 15px;
+  overflow: hidden;
+  left: 50%;
+  margin-left: -400px;
+  max-width: 800px;
+}
+
+#vomnibar .vomnibarSearchArea,
+#vomnibar input {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: var(--font-size);
+  font-weight: var(--font-weight-medium);
+}
+
+#vomnibar .vomnibarSearchArea {
+  padding: 14px 50px;
+  border-radius: 6px;
+}
+
+#vomnibar input {
+  border: none;
+  padding: var(--padding);
+}
+
+#vomnibar .vomnibarSearchArea::before {
+  content: "";
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M14.9536 14.9458L21 21M17 10C17 13.866 13.866 17 10 17C6.13401 17 3 13.866 3 10C3 6.13401 6.13401 3 10 3C13.866 3 17 6.13401 17 10Z' stroke='%23dfdfdf' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 18px;
+  height: 18px;
+}
+
+.vomnibarNoInsertText {
+  display: none;
+}
+
+#vomnibar ul {
+  background: transparent;
+  border-top: 2px solid var(--border);
+  margin: 0 15px;
+  margin-bottom: 5px;
+  padding: var(--padding-vomnibar);
+}
+
+#vomnibar li {
+  border-bottom: none;
+  padding: 15px;
+}
+
+#vomnibar li .vomnibarTopHalf {
+  padding: var(--padding);
+}
+
+#vomnibar li .vomnibarBottomHalf {
+  padding: 0px 0px 0px 2px;
+  margin: 0;
+}
+
+#vomnibar li .vomnibarSource {
+  color: var(--fg-dark);
+  font-family: var(--font);
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-bold);
+  text-transform: capitalize;
+}
+
+#vomnibar li em,
+#vomnibar li .vomnibarTitle {
+  color: var(--fg);
+  font-family: var(--font);
+  font-size: var(--font-size-title);
+  font-weight: var(--font-weight-medium);
+}
+
+#vomnibar li .vomnibarUrl {
+  color: var(--fg-url);
+  font-family: var(--font);
+  font-size: var(--font-size-url);
+  font-weight: var(--font-weight-medium);
+}
+
+#vomnibar li .vomnibarMatch {
+  color: var(--fg-match);
+}
+
+#vomnibar li .vomnibarTitle .vomnibarMatch {
+  color: var(--fg);
+  font-weight: bold;
+}
+
+#vomnibar li.vomnibarSelected {
+  background-color: var(--bg-selected);
+  backdrop-filter: blur(20px);
+  border-radius: 8px;
+}
+
+#vomnibar li.vomnibarSelected .vomnibarUrl {
+  color: var(--fg-url);
+}
+
+#vomnibar li.vomnibarSelected .vomnibarMatch {
+  color: var(--fg);
+}
+
+/* Hints Marks*/
+
 #vimiumHintMarkerContainer div.internalVimiumHintMarker,
 #vimiumHintMarkerContainer div.vimiumHintMarker {
   background: var(--bg);
-  border: 1px solid var(--border);
-  backdrop-filter: blur(10px);
+  border: none;
   box-shadow: var(--shadow);
   padding: 3px 4px;
 }
@@ -57,118 +176,10 @@
   color: var(--fg-hints);
 }
 
-/* -------- VOMNIBAR -------- */
-#vomnibar {
-  background: var(--bg);
-  backdrop-filter: blur(var(--blur));
-  border: 1px solid var(--border);
-  box-shadow: var(--shadow);
-  border-radius: 15px;
-  overflow: hidden;
-  left: 50%;
-  margin-left: -400px;
-  max-width: 800px;
-}
+/* Hud */
 
-#vomnibar .vomnibarSearchArea,
-#vomnibar input {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  color: var(--fg);
-  font-family: var(--font);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight);
-}
-
-#vomnibar .vomnibarSearchArea {
-  padding: 8px 15px;
-  border-radius: 6px;
-}
-
-#vomnibar input {
-  border: none;
-  padding: var(--padding);
-}
-
-.vomnibarNoInsertText {
-  display: none;
-}
-
-#vomnibar ul {
-  background: transparent;
-  border-top: 1px solid var(--border);
-  margin: 0;
-  padding: var(--padding-vomnibar);
-}
-
-#vomnibar li {
-  border-bottom: none;
-  padding: 15px;
-}
-
-#vomnibar li .vomnibarTopHalf {
-  padding: var(--padding);
-}
-
-#vomnibar li .vomnibarBottomHalf {
-  padding-top: 0px;
-  padding-bottom: 1px;
-}
-
-#vomnibar li .vomnibarSource {
-  color: var(--fg-dark);
-  font-family: var(--font);
-  font-size: 12;
-  font-weight: var(--font-weight-bold);
-  text-transform: uppercase; /* `.vomnibarSource` will be in all uppercase letters. Delete to revert to original */
-}
-
-#vomnibar li em,
-#vomnibar li .vomnibarTitle {
-  color: var(--fg);
-  font-family: var(--font);
-  font-size: var(--font-size);
-  font-weight: var(--font-weight-medium);
-}
-
-#vomnibar li .vomnibarUrl {
-  color: var(--fg-url);
-  font-family: var(--font);
-  font-size: var(--font-size-url);
-  font-weight: var(--font-weight-medium);
-}
-
-#vomnibar li .vomnibarMatch {
-  color: var(--fg-match);
-  font-weight: normal;
-}
-
-#vomnibar li .vomnibarTitle .vomnibarMatch {
-  color: var(--fg);
-  font-weight: bold;
-}
-
-#vomnibar li.vomnibarSelected {
-  background-color: var(--bg-selected);
-  backdrop-filter: blur(20px);
-  border-radius: 8px;
-}
-
-#vomnibar li.vomnibarSelected .vomnibarUrl {
-  /* Changes '.vomnibarURL' to '--fg-match' when selected */
-  color: var(--fg-url);
-}
-
-#vomnibar li.vomnibarSelected .vomnibarMatch {
-  /* Changes '.vomnibarMatch' to '--fg' when selected */
-  color: var(--fg);
-}
-
-/* -------- HUD -------- */
 div.vimiumHUD {
   background: var(--bg);
-  backdrop-filter: blur(20px);
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   border-radius: 6px;
@@ -190,57 +201,4 @@ div.vimiumHUD .hud-find {
 div.vimiumHUD .vimiumHUDSearchArea {
   background-color: transparent;
   padding: 6px;
-}
-
-/* -------- HELP DIALOG -------- */
-div#vimiumHelpDialogContainer {
-  background-color: transparent !important;
-  border: none !important;
-}
-
-div#vimiumHelpDialog {
-  background: var(--bg);
-  backdrop-filter: blur(var(--blur));
-  border: 1px solid var(--border);
-  border-radius: 15px;
-  font-family: var(--font);
-  font-size: var(--font-size);
-  padding: 15px 10px !important;
-}
-
-span#vimiumTitle {
-  color: var(--fg);
-}
-
-a:link.vimiumHelDialogLink,
-a:visited.vimiumHelDialogLink,
-a:hover.vimiumHelDialogLink,
-a:active.vimiumHelDialogLink,
-a#toggleAdvancedCommands {
-  color: var(--fg-url);
-  font-family: var(--font);
-  font-size: var(--font-size);
-}
-
-span.vimiumHelpDialogKey {
-  background-color: var(--bg-hints);
-  border: 1px solid var(--border-hints);
-  box-shadow: var(--shadow);
-  padding: 2px 3px;
-  color: var(--fg-hints);
-  font-family: var(--font);
-  font-size: var(--font-size-hints);
-  font-weight: var(--font-weight-bold);
-  text-shadow: none;
-}
-
-td.vimiumHelpSectionTitle,
-td.vimiumHelpDescription {
-  color: var(--fg);
-  font-family: var(--font);
-}
-
-div.vimiumColumn {
-  color: var(--fg);
-  font-family: var(--font);
 }
