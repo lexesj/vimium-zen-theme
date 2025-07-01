@@ -183,6 +183,10 @@
   border: 1px solid var(--border);
   box-shadow: var(--shadow);
   border-radius: 6px;
+  left: unset;
+  right: 20px;
+  width: 100%;
+  max-width: 200px;
 }
 
 #hud-container span#hud-find-input,
